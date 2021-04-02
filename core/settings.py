@@ -33,13 +33,24 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'billing',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
+
+# django all-auth
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+SITE_ID = 1
+LOGIN_REDIRECT_URL = 'bookstore-home'
+LOGIN_URL = 'account_signin'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
