@@ -15,6 +15,7 @@ class Customer(models.Model):
 
 class BillInformation(models.Model):
     customer = models.ForeignKey(Customer, on_delete = models.CASCADE)
+    energy_units_consumed = models.FloatField()
     bill_number = models.CharField(max_length=8)
     amount_due = models.FloatField()
     payment_date = models.DateTimeField(auto_now_add=True)

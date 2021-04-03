@@ -17,6 +17,21 @@ def bill_overview(request):
 def payment_report(request):
     return render(request, 'billing/payment_report.html')
 
+@login_required(login_url='account_login')
+def ask_query(request):
+    return render(request, 'billing/ask_query.html')
+
+@login_required(login_url='account_login')
+def generate_payment_report(request):
+    return render(request, 'billing/generate_payment_report.html')
+
+@login_required(login_url='account_login')
+def generate_electricity_consumption(request):
+    return render(request, 'billing/generate_electricity_consumption.html')
+
+@login_required(login_url='account_login')
+def profile(request):
+    return render(request, 'billing/profile.html')
 
 @login_required
 def add_customer(request):
