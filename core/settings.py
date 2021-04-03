@@ -49,8 +49,8 @@ INSTALLED_APPS = [
 # django all-auth
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 SITE_ID = 1
-LOGIN_REDIRECT_URL = 'bookstore-home'
-LOGIN_URL = 'account_signin'
+LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = 'account_login'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

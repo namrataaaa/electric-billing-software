@@ -1,0 +1,18 @@
+{% extends 'billing/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-4">
+            <div class="form-group">
+                <form method="POST" enctype="multipart/form-data" class="p-5">
+                  {% csrf_token %}
+                  {{ form|crispy}}
+                  <button class="btn btn-secondary"> add </button>
+                </form>
+              </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

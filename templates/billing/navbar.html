@@ -1,0 +1,26 @@
+<nav class="navbar navbar-dark navbar-expand-sm fixed-top navbar-fixed-top" style="background-color: #56baed;">
+    <div class="container">
+        <button class="navbar-toggler ml-1" onclick="collapse()" type="button" data-toggle="collapse"
+            data-target="#Navbar" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="Navbar">
+            {% if user.is_authenticated %}
+            <p style="padding-top: 10px;"><a href="{% url 'account_logout' %}">Logout</a></p>
+            {% else %}
+                <p style="padding-top: 10px;"><a href="{% url 'account_login' %}">Login </a>/ <a href="{% url 'account_signup' %}">Signup</a></p>
+            {% endif %}
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active" id="navHome"><a class="nav-link text-light mt-2" href="{% url 'home' %}"><span
+                            class="fa fa-home"></span>
+                        Home</a></li>
+                {% if user.is_superuser %}
+                <li class="nav-item" id="navEvents"><a class="nav-link text-light mt-2" href="{% url 'add-customer' %}"><span
+                            class="fa fa-list"></span>
+                        Add Customer</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>  
