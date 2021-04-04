@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from .models import Customer, Employee, Payment, BillInformation
 
 def home(request):
     return render(request, 'billing/home.html')
@@ -31,7 +32,22 @@ def generate_electricity_consumption(request):
 
 @login_required(login_url='account_login')
 def profile(request):
-    return render(request, 'billing/profile.html')
+    context={}
+    try:
+        curr_customer = Customer.objects.get(user=request.user)
+        context['curr_customer'] = curr_customer
+        # return render(request, 'billing/profile.html', context)
+    except:
+        try:
+            curr_employee = Employee.objects.get(user=request.user)
+            context['curr_employee'] =  curr_employee
+            return render(request, 'billing/profile.html', context)
+        except:
+            return render(request, 'billing/profile.html', context)
+
+    
+
+    return render(request, 'billing/profile.html', context)
 
 @login_required
 def add_customer(request):

@@ -5,11 +5,18 @@
     <div style="margin-top: 100px; margin-left: 400px;">
         <h1>Profile</h1>
         <br>
-        <p>Name: Namrata Roy</p>
-        <p>Email ID: r.namrata99@gmail.com</p>
-        <p>Customer ID: 22233</p>
-        <p>Phone Number: 9876543210</p>
-        <p>Address: Room number 12, Visakha Hall of Residence, Burla.</p>
+        <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
+        <p>Email ID: {{ user.email }}</p>
+        {% if user.is_employee %}
+            <p>Employee ID: {{ curr_employee.pk }}</p>
+            <p>Phone Number: {{ curr_employee.phone_number }}</p>
+            <p>Address: {{ curr_employee.address }}</p>
+        {% endif %}
+        {% if user.is_customer %}
+            <p>Customer ID: {{ curr_customer.pk }}</p>
+            <p>Phone Number: {{ curr_customer.phone_number }}</p>
+            <p>Address: {{ curr_customer.address }}</p>
+        {% endif %}
         <br>
         <button class="btn btn-primary">Edit Profile</button>
         
