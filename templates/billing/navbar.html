@@ -7,19 +7,15 @@
         </button>
         <div class="collapse navbar-collapse" id="Navbar">
             {% if user.is_authenticated %}
-            <p style="padding-top: 10px;"><a href="{% url 'account_logout' %}">Logout</a></p>
+            <p style="padding-top: 10px;"><a href="{% url 'account_logout' %}" style="color: black;">Logout</a></p>
             {% else %}
-                <p style="padding-top: 10px;"><a href="{% url 'account_login' %}">Login </a>/ <a href="{% url 'account_signup' %}">Signup</a></p>
+                <p style="padding-top: 10px;"><a href="{% url 'account_login' %}" style="color: black;">Login </a>/ <a href="{% url 'account_signup' %}" style="color: black;">Signup</a></p>
             {% endif %}
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active" id="navHome"><a class="nav-link text-light mt-2" href="{% url 'home' %}"><span
                             class="fa fa-home"></span>
                         Home</a></li>
-                {% if user.is_superuser %}
-                <li class="nav-item" id="navEvents"><a class="nav-link text-light mt-2" href="{% url 'add-customer' %}"><span
-                            class="fa fa-list"></span>
-                        Add Customer</a></li>
-                {% endif %}
+                
             </ul>
         </div>
     </div>
